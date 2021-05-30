@@ -9,6 +9,7 @@ import com.hrms.hrms.entities.dtos.JobSeekerRegisterDto;
 
 public interface JobSeekerService  {
 
-	Result add(JobSeekerRegisterDto jobSeekerRegisterDto);
 	DataResult<List<JobSeeker>> getAll();
+	Result add(JobSeekerRegisterDto jobSeekerRegisterDto);
+	
 }

@@ -1,0 +1,36 @@
+package com.hrms.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.hrms.hrms.business.abstracts.CityService;
+import com.hrms.hrms.core.utilities.results.DataResult;
+import com.hrms.hrms.core.utilities.results.Result;
+import com.hrms.hrms.core.utilities.results.SuccessDataResult;
+import com.hrms.hrms.core.utilities.results.SuccessResult;
+import com.hrms.hrms.dataAccess.abstracts.CityDao;
+import com.hrms.hrms.entities.concretes.City;
+
+@Service
+public class CityManager implements CityService{
+
+	private CityDao cityDao;
+	
+	public CityManager(CityDao cityDao) {
+		super();
+		this.cityDao = cityDao;
+	}
+
+	@Override
+	public DataResult<List<City>> getAll() {
+		return new SuccessDataResult<List<City>>(cityDao.findAll(),"Şehirler Başarıyla Listelendi");
+	}
+
+	@Override
+	public Result add(City city) {
+		cityDao.save(city);
+		return new SuccessResult("Şehir Başarıyla Eklendi");
+	}
+
+}

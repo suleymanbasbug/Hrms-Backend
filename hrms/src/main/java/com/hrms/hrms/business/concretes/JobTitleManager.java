@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.hrms.hrms.business.abstracts.JobTitleService;
 import com.hrms.hrms.core.utilities.results.DataResult;
+import com.hrms.hrms.core.utilities.results.Result;
 import com.hrms.hrms.core.utilities.results.SuccessDataResult;
+import com.hrms.hrms.core.utilities.results.SuccessResult;
 import com.hrms.hrms.dataAccess.abstracts.JobTitleDao;
 import com.hrms.hrms.entities.concretes.JobTitle;
 
@@ -23,6 +25,12 @@ public class JobTitleManager implements JobTitleService{
 	@Override
 	public DataResult<List<JobTitle>> getAll() {
 		return new SuccessDataResult<List<JobTitle>>(jobTitleDao.findAll(),"Genel iş pozisyonları başarıyla listelendi.");
+	}
+
+	@Override
+	public Result add(JobTitle jobTitle) {
+		jobTitleDao.save(jobTitle);
+		return new SuccessResult("İş Pozisyonu Başarıyla Eklendi");
 	}
 
 }

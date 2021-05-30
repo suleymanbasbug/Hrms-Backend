@@ -1,9 +1,13 @@
 package com.hrms.hrms.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hrms.hrms.entities.dtos.EmployerRegisterDto;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +34,10 @@ public class Employer extends User {
 	
 	@Column(name="web_site")
 	private String webSite;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employer")
+	private List<JobAdvertisement> jobAdvertisements;
 	
 	public Employer(EmployerRegisterDto employerRegisterDto) {
 		setCompanyName(employerRegisterDto.getCompanyName());
