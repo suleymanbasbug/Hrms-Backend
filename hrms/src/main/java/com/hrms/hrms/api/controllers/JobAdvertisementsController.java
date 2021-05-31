@@ -2,7 +2,7 @@ package com.hrms.hrms.api.controllers;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +22,7 @@ public class JobAdvertisementsController {
 
 	private JobAdvertisementService jobAdvertisementService;
 	
-	
+	@Autowired
 	public JobAdvertisementsController(JobAdvertisementService jobAdvertisementService) {
 		super();
 		this.jobAdvertisementService = jobAdvertisementService;
@@ -40,13 +40,13 @@ public class JobAdvertisementsController {
 		return jobAdvertisementService.add(jobAdvertisement);
 	}
 	
-	@GetMapping("/getbyisactive")
-	DataResult<List<JobAdvertisementDto>> getByIsActive(){
-		return jobAdvertisementService.getByIsActive();
+	@GetMapping("/findbyisactive")
+	DataResult<List<JobAdvertisementDto>> findByIsActive(){
+		return jobAdvertisementService.findByIsActive();
 	}
 	
-	@GetMapping("/getByEmployer_IdAndIsActiveTrue")
-	DataResult<List<JobAdvertisementDto>> getByEmployer_IdAndIsActiveTrue(@RequestParam int employerId){
-		return jobAdvertisementService.getByEmployer_IdAndIsActiveTrue(employerId);
+	@GetMapping("/findByEmployer_IdAndIsActiveTrue")
+	DataResult<List<JobAdvertisementDto>> findByEmployer_IdAndIsActiveTrue(@RequestParam int employerId){
+		return jobAdvertisementService.findByEmployer_IdAndIsActiveTrue(employerId);
 	}
 }

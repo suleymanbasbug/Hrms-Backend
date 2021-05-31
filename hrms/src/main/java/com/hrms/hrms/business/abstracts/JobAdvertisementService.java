@@ -10,7 +10,6 @@ import com.hrms.hrms.entities.dtos.JobAdvertisementDto;
 public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>> getAll();
 	Result add(JobAdvertisement jobAdvertisement);
-	DataResult<List<JobAdvertisementDto>> getByIsActive();
-
-	DataResult<List<JobAdvertisementDto>> getByEmployer_IdAndIsActiveTrue(int employerId);
+	DataResult<List<JobAdvertisementDto>> findByIsActive();
+	DataResult<List<JobAdvertisementDto>> findByEmployer_IdAndIsActiveTrue(int employerId);
 }

@@ -10,7 +10,7 @@ import com.hrms.hrms.entities.concretes.JobAdvertisement;
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Integer>{
 
 	@Query("From JobAdvertisement where isActive=true and employerIsActive=true")
-	List<JobAdvertisement> getByIsActive();
+	List<JobAdvertisement> findByIsActive();
 	
-	List<JobAdvertisement> getByEmployer_IdAndIsActiveTrue(int employerId);
+	List<JobAdvertisement> findByEmployer_IdAndIsActiveTrue(int employerId);
 }

@@ -2,6 +2,7 @@ package com.hrms.hrms.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hrms.hrms.business.abstracts.EmployerService;
@@ -23,6 +24,7 @@ public class EmployerManager implements EmployerService{
 	private EmployerDao employerDao;
 	private MailValidationService mailValidationService;
 	
+	@Autowired
 	public EmployerManager(RegisterValidationService registerValidationService, EmployerDao employerDao, MailValidationService mailValidationService) {
 		super();
 		this.registerValidationService = registerValidationService;

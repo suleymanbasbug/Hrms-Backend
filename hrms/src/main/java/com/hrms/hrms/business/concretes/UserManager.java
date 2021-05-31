@@ -12,15 +12,16 @@ import com.hrms.hrms.entities.concretes.User;
 @Service
 public class UserManager implements UserService {
 	
-private UserDao userDao;
+	private UserDao userDao;
 
-@Autowired
-public UserManager(UserDao userDao) {
-	super();
-	this.userDao = userDao;
-}
-@Override
-public List<User> getAll() {
-	return userDao.findAll();
-}
+	@Autowired
+	public UserManager(UserDao userDao) {
+		super();
+		this.userDao = userDao;
+	}
+	
+	@Override
+	public List<User> getAll() {
+		return userDao.findAll();
+	}
 }
