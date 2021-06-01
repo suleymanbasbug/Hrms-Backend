@@ -40,4 +40,5 @@ public class JobSeekerCv {
 	@ManyToOne
 	@JoinColumn(name = "jobSeeker_id")
 	private JobSeeker jobSeeker;
+	
 }

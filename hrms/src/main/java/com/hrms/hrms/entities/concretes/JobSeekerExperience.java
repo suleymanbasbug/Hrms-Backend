@@ -41,8 +41,6 @@ public class JobSeekerExperience {
 	
 	@Min(1950)
 	@Max(2030)
-	@NotBlank
-	@NotNull
 	@Column(name = "start_year")
 	private int startYear;
 	
