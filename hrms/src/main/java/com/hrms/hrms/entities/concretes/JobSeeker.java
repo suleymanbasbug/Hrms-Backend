@@ -1,13 +1,16 @@
 package com.hrms.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hrms.hrms.entities.dtos.JobSeekerRegisterDto;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +42,26 @@ public class JobSeeker extends User{
 	
 	@Column(name="is_mail_active")
 	private boolean isMailActive;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+    @JsonIgnore()
+    private List<JobSeekerEducation> jobSeekerEducations;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
+	private List<JobSeekerExperience> jobSeekerExperiences;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
+	private List<JobSeekerLanguage> jobSeekerLanguages;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
+	private List<JobSeekerImage> jobSeekerImages;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	@JsonIgnore
+	private List<JobSeekerCv> jobSeekerCvs;
 	
 	public JobSeeker(JobSeekerRegisterDto jobSeekerRegisterDto) {
 		setIdentityNumber(jobSeekerRegisterDto.getIdentityNumber());
