@@ -55,9 +55,9 @@ public class JobSeeker extends User{
 	@JsonIgnore
 	private List<JobSeekerLanguage> jobSeekerLanguages;
 	
-	@OneToMany(mappedBy = "jobSeeker")
-	@JsonIgnore
-	private List<JobSeekerImage> jobSeekerImages;
+//	@OneToMany(mappedBy = "jobSeeker")
+//	@JsonIgnore
+//	private List<JobSeekerPhoto> jobSeekerPhotos;
 	
 	@OneToMany(mappedBy = "jobSeeker")
 	@JsonIgnore
